@@ -9,6 +9,8 @@
 % TODO: 之后版本迁移至公共模板入口csuthesis.cls 处（放置在引入子模版之后）
 \newcommand*{\titlecn}[1]{\gdef\@titlecn{#1}}                           % 中文标题
 \newcommand*{\titleen}[1]{\gdef\@titleen{#1}}                           % 英文标题
+\newcommand*{\coursenamecn}[1]{\gdef\@coursenamecn{#1}}                     % 课程名称
+\newcommand*{\coursenameen}[1]{\gdef\@coursenameen{#1}}                     % 课程名称
 \newcommand*{\priormajor}[1]{\gdef\@priormajor{#1}}                     % 一级学科（学科专业）
 \newcommand*{\minormajor}[1]{\gdef\@minormajor{#1}}                     % 二级学科（学科方向）
 \newcommand*{\interestmajor}[1]{\gdef\@interestmajor{#1}}               % 研究方向，关键词组
@@ -53,7 +55,7 @@
         \fancyhf[RH]{\heiti \zihao{-5} {文献翻译}}
     \fi
     \ifcsu@type@research
-        \fancyhf[RH]{\heiti \zihao{-5} {调研报告}}
+        \fancyhf[RH]{\heiti \zihao{-5} {实验报告}}
     \fi
 \fi
 
@@ -272,7 +274,7 @@
         \endgroup
     \end{center}
 }
-% 构建调研报告封面绘制宏
+% 构建实验报告封面绘制宏
 \NewDocumentCommand{\csu@make@research@cover@zh}{} {
     \thispagestyle{empty}
     \begin{center}
@@ -288,18 +290,18 @@
         \vspace{8pt}
     \begingroup
         \linespread{1.0}
-        \fontsize{45}{60}\selectfont \enheiti \heiti \CJKsetecglue{} 本科毕业设计(论文) \par 
-        \fontsize{40}{45}\selectfont \enheiti \heiti \CJKsetecglue{} 调研报告 \par
+        \fontsize{45}{60}\selectfont \enheiti \heiti \CJKsetecglue{} \@coursenamecn \par 
+        \fontsize{40}{45}\selectfont \enheiti \heiti \CJKsetecglue{} 实验报告 \par
      \endgroup
      \vspace*{14pt}
      \begingroup
          \linespread{1.0}
-         \zihao{1} \setmainfont{SimHei} GRADUATION DESIGN(THESIS) \par
-         \zihao{1} \setmainfont{SimHei} RESEARCH REPORT \par
+        %  \zihao{1} \setmainfont{SimHei} fdaf \par
+        %  \zihao{1} \setmainfont{SimHei} EXPERIMENT REPORT \par
          
          % 1号，黑体
      \endgroup
-        \vspace{40pt} % 空行
+        \vspace{20pt} % 空行
         \begingroup
             \linespread{1.3}
             \zihao{-2} 
@@ -307,6 +309,7 @@
             \begin{tabular}{ll}
                 \hspace{12pt} \makebox[4em][s]{题\qquad 目：} & \underline{\parbox[][][c]{220pt}{\center \kaishu \@titlecn}} \\
                 \hspace{12pt} \makebox[4em][s]{学生姓名：} & \underline{\makebox[220pt][c]{\kaishu \@author}} \\
+                \hspace{12pt} \makebox[4em][s]{学\qquad 号：} & \underline{\makebox[220pt][c]{\kaishu \@studentid}} \\
                 \hspace{12pt} \makebox[4em][s]{指导老师：} &  \underline{\makebox[220pt][c]{\kaishu \@supervisor}}  \\
                 \hspace{12pt} \makebox[4em][s]{学\qquad 院：} & \underline{\makebox[220pt][c]{\kaishu \@department}}  \\
                 \hspace{12pt} \makebox[4em][s]{专业班级：} & \underline{\makebox[220pt][c]{\kaishu \@myclass}}  \\
@@ -340,23 +343,23 @@
 \newcommand*{\keywordscn}[1]{\gdef\@keywordscn{#1}} % 定义中文关键词
 %\newcommand*{\categorycn}[1]{\gdef\@categorycn{#1}} % 定义中文分类
 % 定义中文摘要环境
-\newenvironment{abstractzh} {
-    \csu@pdfbookmark{0}{\csu@name@abstract@zh}
-	\renewcommand*{\headsep}{0pt}
-	\vspace*{0pt}
-    \begin{center} \zihao{-2} \heiti \@titlecn \end{center}
-    \vspace{0pt}
-    \begin{center} \zihao{3} \heiti 摘要 \end{center}  % 摘要为三号黑体
-    \vspace{12pt}
-    \linespread{1.5}
-    \zihao{-4}\songti  % 内容为四号宋体
-}
-% 显示中文关键词和分类号
-{
-    \begin{flushleft}
-        \noindent {\zihao{-4} \bfseries \songti 关键词：} {\zihao{-4} \songti \@keywordscn} \par % 关键词为小四号宋体加粗，内容为小四号宋体
-    \end{flushleft}
-}
+% \newenvironment{abstractzh} {
+    % \csu@pdfbookmark{0}{\csu@name@abstract@zh}
+	% \renewcommand*{\headsep}{0pt}
+% 	\vspace*{0pt}
+%     \begin{center} \zihao{-2} \heiti \@titlecn \end{center}
+%     \vspace{0pt}
+%     \begin{center} \zihao{3} \heiti 摘要 \end{center}  % 摘要为三号黑体
+%     \vspace{12pt}
+%     \linespread{1.5}
+%     \zihao{-4}\songti  % 内容为四号宋体
+% }
+% % 显示中文关键词和分类号
+% {
+%     \begin{flushleft}
+%         \noindent {\zihao{-4} \bfseries \songti 关键词：} {\zihao{-4} \songti \@keywordscn} \par % 关键词为小四号宋体加粗，内容为小四号宋体
+%     \end{flushleft}
+% }
 
 % ----------------------------------------------
 % 英文摘要
@@ -365,22 +368,22 @@
 % 定义英文摘要，字体全部为timesnewroman
 \newcommand*{\keywordsen}[1]{\gdef\@keywordsen{#1}} % 英文关键词
 
-\newenvironment{abstracten} { % 新建英文摘要环境
-    \csu@pdfbookmark{0}{\csu@name@abstract@en}
-    \vspace*{0pt}
-    \begin{center} \zihao{-2} \bfseries \@titleen \end{center}
+% \newenvironment{abstracten} { % 新建英文摘要环境
+%     \csu@pdfbookmark{0}{\csu@name@abstract@en}
+%     \vspace*{0pt}
+%     \begin{center} \zihao{-2} \bfseries \@titleen \end{center}
 
-    \begin{center} \zihao{3} \bfseries ABSTRACT \end{center}
-    \vspace{12pt}
-    \linespread{1.5}
-    \zihao{-4} % 内容为四号宋体
-}
-{
-    \begin{flushleft}
-        % bugfix 英文摘要字体设置
-        \noindent {\zihao{-4} \bfseries Key\ words:~} {\zihao{-4} \@keywordsen} \par % 新版本要求小四号
-    \end{flushleft}
-}
+%     \begin{center} \zihao{3} \bfseries ABSTRACT \end{center}
+%     \vspace{12pt}
+%     \linespread{1.5}
+%     \zihao{-4} % 内容为四号宋体
+% }
+% {
+%     \begin{flushleft}
+%         % bugfix 英文摘要字体设置
+%         \noindent {\zihao{-4} \bfseries Key\ words:~} {\zihao{-4} \@keywordsen} \par % 新版本要求小四号
+%     \end{flushleft}
+% }
 
 
 
