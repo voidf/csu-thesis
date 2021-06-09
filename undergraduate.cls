@@ -563,7 +563,7 @@
 \ctexset{%
     chapter = {%
         format       = \zihao{3} \heiti\centering,
-        name         = {第, 章},
+        name         = {,.},
         nameformat   = {},
         number       = \arabic{chapter},
         numberformat = {},

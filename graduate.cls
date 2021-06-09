@@ -278,7 +278,7 @@
 %--------------------------------------- 章节标题设置 -------------------------------------------------
 \RequirePackage{ctex,indentfirst}
 
-\ctexset{chapter={format+={\heiti\zihao{3}},afterskip={12pt},beforeskip={-12pt},number={\arabic{chapter}},name={第,章}}}
+\ctexset{chapter={format+={\heiti\zihao{3}},afterskip={12pt},beforeskip={-12pt},number={\arabic{chapter}},name={.}}}
 \ctexset{section={format+={\heiti\zihao{-4}\raggedright},indent={2em},afterskip={0pt},beforeskip={0pt}}}
 \ctexset{subsection={format+={\kaishu\zihao{-4}\raggedright},indent={2em}}}
 \ctexset{subsubsection={format={\zihao{-4}\bf\raggedright}}}
